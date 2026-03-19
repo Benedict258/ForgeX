@@ -2,212 +2,160 @@
 
 **ForgeX** is an AI engineering copilot and agent for circuits, embedded systems, component selection, troubleshooting, and guided hardware building.
 
-It is built around a simple product question:
-
+## The Core Question
 Software developers already have AI-assisted tools that help them build faster.
 
-What is the equivalent for engineers working with:
-
-- circuits
-- microcontrollers
-- embedded code
-- component selection
-- prototyping
-- troubleshooting
-- engineering learning workflows
+**What is the equivalent for engineers working with:**
+- Circuits
+- Microcontrollers
+- Embedded code
+- Component selection
+- Prototyping
+- Troubleshooting
+- Engineering learning workflows
 
 ForgeX is that product direction.
 
 ## Product Story
+ForgeX is designed as an **agentic engineering workspace**. Users should be able to describe what they want to build, fix, or understand, and ForgeX should be able to:
+- Interpret the engineering request
+- Break the problem down
+- Recommend the right controller or platform
+- Identify the needed components
+- Generate embedded systems code
+- Explain the design logic
+- Guide the user step-by-step
+- Continue autonomously in agent mode
 
-ForgeX is designed as an **agentic engineering workspace**.
-
-A user should be able to describe what they want to build, fix, or understand, and ForgeX should be able to:
-
-- interpret the engineering request
-- break the problem down
-- recommend the right controller or platform
-- identify the needed components
-- generate embedded systems code
-- explain the design logic
-- guide the user step by step
-- or continue autonomously in agent mode
-
-This means ForgeX is not just a chat interface.
-
-It is intended to behave like:
-
-- a tutor
-- a senior engineering assistant
-- an autonomous build agent
+ForgeX is not just a chat interface. It is intended to behave like:
+- A tutor
+- A senior engineering assistant
+- An autonomous build agent
 
 ## What ForgeX Does
-
 ForgeX helps users across four main categories:
 
-### 1. Engineering Planning
-
+### 1) Engineering Planning
 ForgeX can take a plain-language request and convert it into:
+- Project understanding
+- Assumptions
+- Recommended platform
+- Components
+- System guidance
+- Implementation steps
+- Code
+- Troubleshooting
 
-- a project understanding
-- assumptions
-- recommended platform
-- components
-- system guidance
-- implementation steps
-- code
-- troubleshooting
+### 2) Guided Learning
+In **Guided Mode**, ForgeX should not just produce an answer. It should:
+- Explain what it is doing
+- Walk the user through the work
+- Ask clarifying questions only when they matter
+- Wait for confirmation before continuing to the next step
+- Speak the instructions out loud when voice replies are enabled
 
-### 2. Guided Learning
+### 3) Autonomous Agent Behavior
+In **Agent Mode**, ForgeX should work more aggressively and autonomously:
+- Make reasonable engineering assumptions
+- Keep progressing through the requested workflow
+- Generate relevant output without unnecessary back-and-forth
+- Act like a practical engineering build agent
 
-In **Guided Mode**, ForgeX should not just produce an answer.
-
-It should:
-
-- explain what it is doing
-- walk the user through the work
-- ask clarifying questions only when they matter
-- wait for confirmation before continuing to the next step
-- speak the instructions out loud when voice replies are enabled
-
-### 3. Autonomous Agent Behavior
-
-In **Agent Mode**, ForgeX should work more aggressively and autonomously.
-
-It should:
-
-- make reasonable engineering assumptions
-- keep progressing through the requested workflow
-- generate the relevant output without unnecessary back-and-forth
-- act like a practical engineering build agent
-
-### 4. Troubleshooting
-
-ForgeX is designed to be strong at troubleshooting, not just generation.
-
-It should help diagnose:
-
-- wiring issues
-- wrong pin mapping
-- unstable sensor behavior
-- power problems
-- controller mismatch
-- actuator issues
-- firmware logic mistakes
+### 4) Troubleshooting
+ForgeX is designed to be strong at troubleshooting, not just generation. It helps diagnose:
+- Wiring issues
+- Wrong pin mapping
+- Unstable sensor behavior
+- Power problems
+- Controller mismatch
+- Actuator issues
+- Firmware logic mistakes
 
 ## Core Functionalities
-
 The current ForgeX app supports:
-
-- text input
-- voice input through AssemblyAI transcription
-- spoken assistant replies through browser speech synthesis
+- Text input
+- Voice input through AssemblyAI transcription
+- Spoken assistant replies through browser speech synthesis
 - Guided Mode
 - Agent Mode
-- multi-controller-aware reasoning
-- structured engineering responses
-- direct answers for component and concept questions
-- guided step-by-step progression with user confirmation
-- code generation
-- troubleshooting output
-- a local engineering knowledge base
+- Multi-controller-aware reasoning
+- Structured engineering responses
+- Direct answers for component and concept questions
+- Guided step-by-step progression with user confirmation
+- Code generation
+- Troubleshooting output
+- Local engineering knowledge base
 
 ## Current User Experience
-
 The current web app is split into three main pages:
 
 ### Landing Page
-
-The landing page explains:
-
-- the general purpose of ForgeX
-- the agentic engineering workflow
-- the product direction
-- the stack
-- the broader platform strategy
+Explains:
+- The general purpose of ForgeX
+- The agentic engineering workflow
+- The product direction
+- The stack
+- The broader platform strategy
 
 ### Workspace
-
-The workspace is where users actually interact with ForgeX.
-
-It supports:
-
-- typed prompts
-- voice prompts
-- history drawer
-- structured responses
-- guided walkthroughs
-- step confirmation
-- spoken responses
+Where users interact with ForgeX. Supports:
+- Typed prompts
+- Voice prompts
+- History drawer
+- Structured responses
+- Guided walkthroughs
+- Step confirmation
+- Spoken responses
 
 ### How It Works
-
-This page explains:
-
-- the flow
-- example prompts
-- product behavior
-- proof points and positioning
+Explains:
+- The flow
+- Example prompts
+- Product behavior
+- Proof points and positioning
 
 ## Response Types
-
-ForgeX does not treat every prompt as a full build request.
-
-It can respond differently depending on intent:
+ForgeX can respond differently depending on intent:
 
 ### Build Requests
-
-For example:
-
+Example prompt:
 > Build a traffic light system with Arduino
 
-ForgeX should return:
-
-- understanding
-- recommended platform
-- components
-- implementation steps
-- code
-- troubleshooting
+Typical output:
+- Understanding
+- Recommended platform
+- Components
+- Implementation steps
+- Code
+- Troubleshooting
 
 ### Troubleshooting Requests
-
-For example:
-
+Example prompt:
 > My motor driver twitches but the motor does not spin
 
-ForgeX should focus on:
-
-- likely failure points
-- checks
-- diagnosis
-- corrective next steps
+Typical output focuses on:
+- Likely failure points
+- Checks
+- Diagnosis
+- Corrective next steps
 
 ### Component Questions
-
-For example:
-
+Example prompt:
 > Which microcontroller is better for a greenhouse monitor?
 
 ForgeX should answer directly instead of forcing an unnecessary build plan.
 
 ### Concept Questions
-
-For example:
-
+Example prompt:
 > What is the difference between a MOSFET and a relay?
 
 ForgeX should explain the concept practically and leave irrelevant sections empty.
 
 ## Guided Mode Behavior
-
-Guided Mode is now implemented as an actual guided flow.
-
-When the model returns steps:
-
+Guided Mode is implemented as an interactive flow. When the model returns steps:
 1. ForgeX speaks the plan and introduces the first step.
 2. ForgeX asks the user to complete the step.
-3. The user responds with something like `yes`, `done`, or `next`.
+3. The user responds with `yes`, `done`, or `next`.
 4. ForgeX moves to the next step.
 5. If the user says `repeat`, ForgeX repeats the current step.
 6. If the user says `stop` or `cancel`, the walkthrough pauses.
@@ -215,115 +163,77 @@ When the model returns steps:
 This works with typed input and voice input.
 
 ## Voice Features
-
 ForgeX currently supports:
+- Voice prompt recording in the browser
+- Transcription via AssemblyAI
+- Spoken replies via browser `speechSynthesis`
+- Guided spoken step walkthroughs
 
-- voice prompt recording in the browser
-- transcription via AssemblyAI
-- spoken replies via browser `speechSynthesis`
-- guided spoken step walkthroughs
-
-Important limitation:
-
-- the current voice output quality depends on the voices installed in the user’s browser and operating system
-- if a more human voice is required, ForgeX should later move to a dedicated neural TTS provider
+**Important limitation:**
+- Voice output quality depends on voices installed in the user’s browser and operating system.
+- If a more human voice is required, ForgeX should later move to a dedicated neural TTS provider.
 
 ## Product Direction Options
+ForgeX is bigger than just the current web interface. Three serious product paths:
 
-ForgeX is bigger than just the current web interface.
-
-There are three serious product paths:
-
-### Option 1. Integrate an AI Agent Into Existing Engineering Tools
-
+### Option 1: Integrate an AI Agent Into Existing Engineering Tools
 ForgeX could be integrated with tools such as:
-
 - MATLAB
 - SimulIDE
 - Tinkercad
 - Proteus
-- similar circuit and simulation environments
+- Similar circuit and simulation environments
 
-In this direction, ForgeX becomes an AI layer on top of existing engineering software.
-
-### Option 2. Build a Dedicated ForgeX Application
-
+### Option 2: Build a Dedicated ForgeX Application
 ForgeX could evolve into its own software or web application focused on AI-native engineering workflows.
 
-In this direction, the platform owns the experience directly instead of depending on third-party tools.
-
-### Option 3. Build a Stronger Agentic Control Architecture
-
+### Option 3: Build a Stronger Agentic Control Architecture
 ForgeX could become a more autonomous agent system that can take action inside supported engineering tools.
 
-In this direction, the agent does more than advise. It operates.
-
 ## Current MVP Direction
+The current implementation is closest to a dedicated AI-native engineering workspace. Current focus:
+- Clean frontend
+- Structured responses
+- Strong reasoning
+- Troubleshooting quality
+- Guided and agent modes
+- Voice interaction
 
-The current implementation is closest to:
-
-- a dedicated AI-native engineering workspace
-
-That means the current build focuses on:
-
-- a clean frontend
-- structured responses
-- strong reasoning
-- troubleshooting quality
-- guided and agent modes
-- voice interaction
-
-It does **not** currently focus on:
-
-- full simulation
-- full CAD workflows
-- perfect circuit visuals
-- deep external tool integration
+Not currently focusing on:
+- Full simulation
+- Full CAD workflows
+- Perfect circuit visuals
+- Deep external tool integration
 
 ## Architecture
 
 ### Frontend
-
 - React
 - Vite
 - Tailwind-based UI layer
 
 ### Backend
-
 - Node.js
 - Express
 
 ### AI Layer
-
 - Groq-backed LLM path
-- local mock fallback
-- retrieval-grounded prompting through local engineering knowledge files
+- Local mock fallback
+- Retrieval-grounded prompting through local engineering knowledge files
 
 ### Voice
-
 - AssemblyAI for speech-to-text
-- browser speech synthesis for text-to-speech
+- Browser speech synthesis for text-to-speech
 
 ## Knowledge Base
-
 ForgeX uses local engineering notes under [`knowledge/`](./knowledge) to ground answers.
 
-These files contain practical engineering material such as:
-
-- controller selection guidance
-- embedded systems notes
-- wiring heuristics
-- safety considerations
-- debugging patterns
-
 To expand ForgeX’s grounded knowledge:
-
 1. Add `.md` or `.txt` files under `knowledge/`
 2. Keep each file focused on one topic
 3. Prefer practical engineering rules over vague theory
 
 ## Project Structure
-
 ```text
 /frontend
   /src
@@ -340,53 +250,40 @@ README.md
 
 ## Getting Started
 
-### 1. Install dependencies
-
+### 1) Install dependencies
 From the project root:
-
 ```powershell
 npm.cmd install
 npm.cmd install --prefix frontend
 ```
 
-### 2. Create environment variables
-
-Copy:
-
+### 2) Create environment variables
+Copy the example file:
 ```powershell
 Copy-Item .env.example .env
 ```
 
-Then configure the keys you want to use.
-
-Common variables:
-
+Then configure the keys you want to use. Common variables:
 - `GROQ_API_KEY`
 - `GROQ_MODEL`
 - `ASSEMBLYAI_API_KEY`
 - `PORT`
 
-### 3. Run the app
-
+### 3) Run the app
 ```powershell
 npm.cmd run dev
 ```
-
 This starts:
+- The backend server
+- The frontend dev server
 
-- the backend server
-- the frontend dev server
-
-### 4. Build the frontend
-
+### 4) Build the frontend
 ```powershell
 npm.cmd run build
 ```
 
 ## Available Scripts
-
 From the root [`package.json`](./package.json):
-
 - `npm.cmd run dev`
 - `npm.cmd run dev:backend`
 - `npm.cmd run dev:frontend`
@@ -394,60 +291,39 @@ From the root [`package.json`](./package.json):
 - `npm.cmd run preview`
 
 ## PRD Summary
-
-The current PRD is also maintained in [`Forge.md`](./Forge.md).
-
-The most important PRD ideas are:
-
-- ForgeX is an AI engineering agent for circuits and embedded systems
-- it should help users build, learn, and troubleshoot
-- it should support both guided and autonomous workflows
-- it should support multiple controller families
-- it should be useful for students first
-- it should prioritize impact, reasoning quality, and troubleshooting depth
+The current PRD is maintained in [`Forge.md`](./Forge.md).
 
 ## Why This Project Matters
-
-ForgeX exists because engineering workflows still have too much friction.
-
-Students and technical builders often have to:
-
-- search for tutorials
-- compare scattered docs
-- guess components
-- debug by trial and error
-- move across too many disconnected tools
+Engineering workflows still have too much friction. Students and technical builders often have to:
+- Search for tutorials
+- Compare scattered docs
+- Guess components
+- Debug by trial and error
+- Move across disconnected tools
 
 ForgeX aims to reduce that friction with a single intelligent workflow.
 
 ## Current Status
-
 The project currently includes:
-
-- landing page and product story
-- workspace UI
-- history drawer
+- Landing page and product story
+- Workspace UI
+- History drawer
 - Guided Mode walkthrough behavior
 - Agent Mode behavior
-- voice input
-- spoken replies
-- structured response rendering
-- local knowledge retrieval
+- Voice input
+- Spoken replies
+- Structured response rendering
+- Local knowledge retrieval
 - Groq integration
 
 ## Future Direction
-
 Potential next steps include:
-
-- richer guided-mode memory and state
-- real neural TTS for more human voice output
-- stronger tool integrations
-- simulation support
+- Richer guided-mode memory and state
+- Real neural TTS for more human voice output
+- Stronger tool integrations
+- Simulation support
 - PCB-related workflows
-- more autonomous engineering execution
+- More autonomous engineering execution
 
 ## Final Positioning
-
 **ForgeX is an AI engineering copilot and agent that helps users design, understand, build, and troubleshoot circuits and embedded systems through structured reasoning, guided interaction, code generation, voice support, and agentic automation.**
-#   F o r g e X  
- 
